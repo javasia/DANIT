@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_danit" default="compile.module.danit">
+  <dirname property="module.danit.basedir" file="${ant.file.module_danit}"/>
+  
+  <property name="module.jdk.home.danit" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.danit" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.danit" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.danit" value="-encoding UTF-8 -source 9 -target 9 ${compiler.args}"/>
+  
+  <property name="danit.output.dir" value="${module.danit.basedir}/../../DANIT"/>
+  <property name="danit.testoutput.dir" value="${module.danit.basedir}/../../DANIT"/>
+  
+  <path id="danit.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="danit.module.production.classpath">
+    <path refid="${module.jdk.classpath.danit}"/>
+  </path>
+  
+  <path id="danit.runtime.production.module.classpath">
+    <pathelement location="${danit.output.dir}"/>
+  </path>
+  
+  <path id="danit.module.classpath">
+    <path refid="${module.jdk.classpath.danit}"/>
+    <pathelement location="${danit.output.dir}"/>
+  </path>
+  
+  <path id="danit.runtime.module.classpath">
+    <pathelement location="${danit.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.danit">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.danit">
+    <patternset refid="excluded.from.module.danit"/>
+  </patternset>
+  
+  
+  <target name="compile.module.danit" depends="compile.module.danit.production,compile.module.danit.tests" description="Compile module DANIT"/>
+  
+  <target name="compile.module.danit.production" depends="register.custom.compilers" description="Compile module DANIT; production classes"/>
+  
+  <target name="compile.module.danit.tests" depends="register.custom.compilers,compile.module.danit.production" description="compile module DANIT; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.danit" description="cleanup module">
+    <delete dir="${danit.output.dir}"/>
+    <delete dir="${danit.testoutput.dir}"/>
+  </target>
+</project>
