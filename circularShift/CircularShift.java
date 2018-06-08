@@ -1,5 +1,7 @@
 package circularShift;
+
 import java.util.Scanner;
+
 public class CircularShift {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -9,12 +11,12 @@ public class CircularShift {
         System.out.println(circularShiftRight(number, shift));
     }
 
-    private static int circularShiftRight(int number, int shift) {
-      //  shift %= (int) (Math.log(number) / Math.log(2) + 1);     // normalize shift
+    private static int circularShiftRight(int n, int shift) {
+        shift %= n > 0 ? (int) (Math.log(n) / Math.log(2) + 1) : 32;     // normalize shift
         int tail = (1 << shift) - 1;                    // generate mask
-        tail &= number;                                      // copy tail of n to mask
-        number >>>= shift;
-        tail <<= (int) (Math.log(number) / Math.log(2) + 1); //shift up to order of initial n
-        return number | tail; //merge
+        tail &= n;                                      // copy tail of n to mask
+        n >>>= shift;
+        tail <<= (int) (Math.log(n) / Math.log(2) + 1); //shift up to order of initial n
+        return n | tail; //merge
     }
 }

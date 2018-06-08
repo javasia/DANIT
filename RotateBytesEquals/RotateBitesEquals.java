@@ -44,7 +44,7 @@ public class RotateBitesEquals {
     }
 
     private static int rotateNumber(int n, int shift) {
-        shift %= (int) (Math.log(n) / Math.log(2) + 1);     // normalize shift
+        shift %= n > 0 ? (int) (Math.log(n) / Math.log(2) + 1) : 32;     // normalize shift
         int tail = (1 << shift) - 1;                    // generate mask
         tail &= n;                                      // copy tail of n to mask
         n >>>= shift;
