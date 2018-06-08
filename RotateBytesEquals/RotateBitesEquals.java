@@ -1,49 +1,56 @@
 package RotateBytesEquals;
+//        79773846 638190768  sample inputs
+//        1802973777 682998681
 
 import java.util.Scanner;
 
 public class RotateBitesEquals {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
+//        Scanner in = new Scanner(System.in);
+        Scanner in = new Scanner("1802973777 682998681");
         int m = in.nextInt();
         int n = in.nextInt();
+//         int m = Integer.parseInt(in.next(), 2);
+//         int n = Integer.parseInt(in.next(), 2) ;
         in.close();
-//        79773846 638190768
-//        1802973777 682998681
-        System.out.println(Integer.toBinaryString(m));
-        System.out.println(Integer.toBinaryString(n));
-        //  System.out.println(Integer.toBinaryString(rotateNumber(m, 1)));
+        System.out.printf("m=%32s;\n", Integer.toBinaryString(m));
+        System.out.printf("n=%32s;\n", Integer.toBinaryString(n));
+        System.out.println();
         String resStr = equalsByRotation(m, n) ? "is rotation" : "isn't rotation";
-       System.out.println(resStr);
+        System.out.println(resStr);
     }
 
     public static boolean equalsByRotation(int m, int n) {
-        if (m != n) {
-            int max = Math.max(m, n);
-            n = m + n - max;
-            m = max;
-            for (int i = Integer.highestOneBit(m), count = 1; i > 0; i >>>= 1) {
-                System.out.println("m: " + Integer.toBinaryString(rotateNumber(m, count)));
-                System.out.println("n: " + Integer.toBinaryString(n));
-                System.out.println();
-                if (n == rotateNumber(m, count++)) {
-                    return true;
+
+        boolean areEqual = m == n;
+
+        if (!areEqual) {
+            int iteration = 1;
+            int shiftN = 0;
+            for (int i = Integer.highestOneBit(n); !areEqual && i != 0; i >>>= 1) {
+                int rotatedN = rotateNumber(n, shiftN++);
+                System.out.printf("Iteration %05d: shiftN=%d; %s\n", iteration, shiftN, Integer.toBinaryString(rotatedN));
+                int shiftM = 0;
+                for (int j = Integer.highestOneBit(m); !areEqual && j != 0; j >>>= 1) {
+                    int rotatedM = rotateNumber(m, shiftM++);
+                    System.out.printf("Iteration %05d: shiftM=%d; %s\n", iteration, shiftM, Integer.toBinaryString(rotatedM));
+                    areEqual = rotatedM == rotatedN;
+                    iteration++;
                 }
+                System.out.println();
             }
         }
-        return m == n;
+        return areEqual;
     }
 
-    private static int rotateNumber(int n, int steps) {
-        int highestOneBit = Integer.highestOneBit(n);
-        int tail = ((1 << (steps + 1)) - 1) & n; // copy tail
-        n >>>= steps; // cut the begining
-
-        while (tail != highestOneBit){ // move tail up till the highest one bit
-            tail <<= 1;
-        }
-
-        n |= tail; // put tail into begging
-        return n;
+    private static int rotateNumber(int n, int shift) {
+        shift %= (int) (Math.log(n) / Math.log(2) + 1);     // normalize shift
+        int tail = (1 << shift) - 1;                    // generate mask
+        tail &= n;                                      // copy tail of n to mask
+        n >>>= shift;
+        tail <<= (int) (Math.log(n) / Math.log(2) + 1); //shift up to order of initial n
+        return n | tail; //merge
     }
+
+
 }
