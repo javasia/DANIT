@@ -33,10 +33,10 @@ public class RotateBitesEquals {
 
     private static int rotateNumber(int n, int shift) {
         shift %= 32;                                    // normalize shift simple
-        int tail = (1 << shift) - 1;                    // generate mask
-        tail &= n;                                      // copy tail of n to mask
+        int tail = (1 << shift) - 1;                    // generate
+        tail &= n;                                      // copy tail of n
         n >>>= shift;
-        tail <<= (int) (Math.log(n) / Math.log(2) + 1); //shift up to order of initial n
+        tail <<= (int) (Math.log(n) / Math.log(2) + 1); //shift up to order of n
         return n | tail;                                //merge
     }
 }

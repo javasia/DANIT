@@ -14,9 +14,9 @@ public class CircularShift {
     private static int circularShiftRight(int n, int shift) {
         shift %= n > 0 ? (int) (Math.log(n) / Math.log(2) + 1) : 32;     // normalize shift
         int tail = (1 << shift) - 1;                    // generate mask
-        tail &= n;                                      // copy tail of n to mask
+        tail &= n;                                      // copy tail of n
         n >>>= shift;
-        tail <<= (int) (Math.log(n) / Math.log(2) + 1); //shift up to order of initial n
+        tail <<= (int) (Math.log(n) / Math.log(2) + 1); //shift to order of n
         return n | tail; //merge
     }
 }
