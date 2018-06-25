@@ -20,7 +20,7 @@ public class Test {
 
 
     public static void main(String... args) {
-        int times = 1000;
+        int times = 1000000;
         int i = 0;
 
         long startTimeOptimal = System.currentTimeMillis();
