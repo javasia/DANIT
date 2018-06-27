@@ -20,7 +20,7 @@ public class Task2 {
         for (String s: data){
             if (s.matches("\\w{2,}.*")){
                 res.append(Character.toUpperCase(s.charAt(0)));
-                res.append(s.substring(1));
+                res.append(s.substring(1).toLowerCase());
             }else {
                 res.append(s);
             }
