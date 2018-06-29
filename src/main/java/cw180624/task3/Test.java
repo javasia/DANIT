@@ -11,6 +11,6 @@ public class Test {
         rw.read(out).forEach(System.out::println);
         File in = new File("C:\\Users\\JavaPC\\git\\DANIT\\src\\main\\java\\cw180624\\task3\\out.txt");
         rw.write(out, in);
-
+        rw.print(in);
     }
 }

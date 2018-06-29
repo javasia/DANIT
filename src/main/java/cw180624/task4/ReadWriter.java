@@ -1,4 +1,6 @@
-package cw180624.task3;
+package cw180624.task4;
+
+import cw180624.task3.Name;
 
 import java.io.*;
 import java.util.TreeSet;
