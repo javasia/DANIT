@@ -1,0 +1,12 @@
+Name: Adolf
+Year: 1889
+Salary: 1488,00
+Name: Victor
+Year: 1980
+Salary: 2000,00
+Name: Igor
+Year: 1984
+Salary: 20000,00
+Name: John
+Year: 1975
+Salary: 100000,00
