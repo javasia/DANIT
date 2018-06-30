@@ -6,10 +6,10 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java/cw180624/task4/resources" type="java-resource" />
       <excludeFolder url="file://$MODULE_DIR$/.idea" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
-      <excludePattern pattern="*.xml" />
-      <excludePattern pattern=" .gitattributes" />
+      <excludePattern pattern=".gitattributes" />
       <excludePattern pattern=" danit.properties" />
     </content>
     <orderEntry type="inheritedJdk" />

@@ -1,9 +1,11 @@
 package cw180624.task4;
 
+import cw180624.task4.utils.XmlPrintable;
+
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-public class User implements Comparable<User> {
+public class User implements Comparable<User>, XmlPrintable {
     public static long id;
     private String name;
     private Calendar year = new GregorianCalendar();
@@ -22,8 +24,8 @@ public class User implements Comparable<User> {
         return name;
     }
 
-    public Calendar getYear() {
-        return year;
+    public int getYear() {
+        return year.get(Calendar.YEAR);
     }
 
     public double getSalary() {
@@ -36,11 +38,36 @@ public class User implements Comparable<User> {
 
     @Override
     public String toString() {
-        return String.format("Name: %s\nYear: %d\nSalary: %.2f", name, year.get(Calendar.YEAR), salary);
+        return String.format("Name: %s\nYear: %d\nSalary: %.2f", getName(), getYear(), getSalary());
+    }
+
+    @Override
+    public String toXmlString() {
+        return String.format("<user><name>%s</name>\n<year>%d</year>\n<salary>%.2f</salary>\n</user>",
+                getName(), getYear(), getSalary());
+    }
+
+    @Override
+    public String getXmlHeader() {
+        return new String("<users>");
+    }
+
+    @Override
+    public String getXmlFooter() {
+        return new String("</users>");
     }
 
     @Override
     public int compareTo(User other) {
-        return (int) (this.salary - other.salary);
+        return (int) (this.getSalary() - other.getSalary());
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        User other = (User) obj;
+        return this.USER_ID == other.USER_ID &&
+                this.getName().equals(other.getName()) &&
+                this.getSalary() == other.getSalary() &&
+                this.getYear() == other.getYear();
     }
 }
