@@ -1,4 +1,4 @@
-package cw180624.task4.utils;
+package cw180624.task4.interfaces;
 
 public interface XmlPrintable {
     String toXmlString();

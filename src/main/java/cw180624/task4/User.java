@@ -1,6 +1,6 @@
 package cw180624.task4;
 
-import cw180624.task4.utils.XmlPrintable;
+import cw180624.task4.interfaces.XmlPrintable;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;

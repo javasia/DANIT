@@ -1,6 +1,7 @@
 package cw180624.task4.utils;
 
 import cw180624.task4.User;
+import cw180624.task4.interfaces.XmlPrintable;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -19,7 +20,8 @@ public class FileWriter extends FileWriterAbstract {
     }
 
     @Override
-    public <T extends XmlPrintable> void writeXml(PriorityQueue<T> data, boolean copyToConsole) {
+    public <T extends XmlPrintable> void writeXml(PriorityQueue<T> inputData, boolean copyToConsole) {
+        PriorityQueue<T> data = new PriorityQueue<>(inputData);
         PrintWriter printWriter = null;
         try {
             printWriter = new PrintWriter(new BufferedWriter(new java.io.FileWriter(output)));

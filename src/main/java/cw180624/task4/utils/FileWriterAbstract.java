@@ -1,6 +1,7 @@
 package cw180624.task4.utils;
 
 import cw180624.task4.User;
+import cw180624.task4.interfaces.XmlPrintable;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -20,7 +21,8 @@ public abstract class FileWriterAbstract {
         this.output = output;
     }
 
-    public void write(PriorityQueue<User> data, boolean copyToConsole) {
+    public void write(PriorityQueue<User> inputData, boolean copyToConsole) {
+        PriorityQueue<User> data = new PriorityQueue<>(inputData);
         PrintWriter printWriter = null;
         try {
             printWriter = new PrintWriter(new BufferedWriter(new java.io.FileWriter(output)));
