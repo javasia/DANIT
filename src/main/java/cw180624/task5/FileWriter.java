@@ -13,8 +13,8 @@ public class FileWriter {
         PrintWriter writer = null;
         try {
             writer = new PrintWriter(new BufferedWriter(new java.io.FileWriter(outFile)));
-            writer.print(data);
-            System.out.println(data);
+            writer.print(data.toString());
+            System.out.println(data.toString());
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
