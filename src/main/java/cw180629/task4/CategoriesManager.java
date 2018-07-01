@@ -16,32 +16,6 @@ public class CategoriesManager {
         dataBase.get(record.getNAME_OF_CATEGORY()).add(record);
     }
 
-    /* FORMAT:
-    Manager:10:[Victor, ..., ..., ..., ...]
-    Topmanager:3:[Sergey, ..., ..., ..., ...]
-    Director:1:[Masha]
-    */
-    @Override
-    public String toString() {
-        return new StringBuilder()
-                .append(
-                        String.format("%s:%d:%s",
-                        Categories.Manager.toString(),
-                        dataBase.get(Categories.Manager).getNumberOfEntries(),
-                        dataBase.get(Categories.Manager).getNames().toString()))
-                .append("\n")
-                .append(String.format("%s:%d:%s",
-                        Categories.Topmanager.toString(),
-                        dataBase.get(Categories.Topmanager).getNumberOfEntries(),
-                        dataBase.get(Categories.Topmanager).getNames().toString()))
-                .append("\n")
-                .append(String.format("%s:%d:%s",
-                        Categories.Director.toString(),
-                        dataBase.get(Categories.Director).getNumberOfEntries(),
-                        dataBase.get(Categories.Director).getNames().toString()))
-                .append("\n").toString();
-    }
-
     class CategoriesHolder {
         private int numberOfEntries;
         private ArrayList<String> names = new ArrayList<>();
@@ -67,5 +41,31 @@ public class CategoriesManager {
             this.numberOfEntries++;
             this.names.add(record.getNAME());
         }
+    }
+
+    /* FORMAT:
+Manager:10:[Victor, ..., ..., ..., ...]
+Topmanager:3:[Sergey, ..., ..., ..., ...]
+Director:1:[Masha]
+*/
+    @Override
+    public String toString() {
+        return new StringBuilder()
+                .append(
+                        String.format("%s:%d:%s",
+                                Categories.Manager.toString(),
+                                dataBase.get(Categories.Manager).getNumberOfEntries(),
+                                dataBase.get(Categories.Manager).getNames().toString()))
+                .append("\n")
+                .append(String.format("%s:%d:%s",
+                        Categories.Topmanager.toString(),
+                        dataBase.get(Categories.Topmanager).getNumberOfEntries(),
+                        dataBase.get(Categories.Topmanager).getNames().toString()))
+                .append("\n")
+                .append(String.format("%s:%d:%s",
+                        Categories.Director.toString(),
+                        dataBase.get(Categories.Director).getNumberOfEntries(),
+                        dataBase.get(Categories.Director).getNames().toString()))
+                .append("\n").toString();
     }
 }
