@@ -1,0 +1,15 @@
+
+3. Есть файл формата:
+...
+Manager: Victor
+Topmanager: Sergey
+Director: Masha
+...
+количество записей каждого типа не известно,
+последовательность произвольная
+Необходимо:
+3.1. Посчитать количество всех Manager / Topmanager / Director
+3.2. Вывести всех Manager / Topmanager / Director в формате:
+Manager:10:[Victor, ..., ..., ..., ...]
+Topmanager:3:[Sergey, ..., ..., ..., ...]
+Director:1:[Masha]
