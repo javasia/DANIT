@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
-public class Task4 {
+public class Runner {
     public static void main(String[] args) throws FileNotFoundException {
 
         CategoriesManager categoriesManager = new CategoriesManager();
