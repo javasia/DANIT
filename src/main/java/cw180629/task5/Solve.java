@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 public class Solve {
     public static void main(String... args) {
         PrimeValidator sv = new PrimeValidator();
-        Stream.iterate(Integer.valueOf(0), integer -> ++integer).limit(1000).forEach(sv::isSimple);
+        Stream.iterate(0, integer -> ++integer).limit(1000).forEach(sv::isSimple);
         sv.getSimples().stream().limit(100).forEach(System.out::println); // toDO simplify
     }
 }

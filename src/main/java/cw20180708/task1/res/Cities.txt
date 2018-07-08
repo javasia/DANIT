@@ -1,0 +1,5 @@
+1:Kyiv
+2:New-York
+3:Lviv
+4:Milan
+5:Frankfurt Am Main

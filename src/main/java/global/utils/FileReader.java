@@ -15,9 +15,6 @@ public class FileReader<T extends Collection<String>> {
         this.database = database;
     }
 
-    public FileReader() {
-    }
-
     public FileReader(String filePath) {
         this(new File(filePath));
     }
