@@ -7,16 +7,13 @@ import global.utils.RandomGenerator;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Set;
-import java.util.Spliterator;
 import java.util.TreeSet;
-import java.util.function.BinaryOperator;
-import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 public class Task5 {
     public static void main(String[] args) throws FileNotFoundException {
         String filePath = new String("src/main/java/cw180701/task5/resources/INPUT.txt");
-        ArrayList<Integer> testData = new RandomGenerator<ArrayList<Integer>>().getRandomNumbers(100, 0, 1000);
+        ArrayList<Integer> testData = new RandomGenerator<ArrayList<Integer>>().numbers(100, 0, 1000);
         new FileWriter<ArrayList<Integer>>(new String(filePath))
                 .write(testData);
         new FileReader<ArrayList<String>>(filePath)

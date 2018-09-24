@@ -1,12 +1,12 @@
 package cw20180708.task1;
 
-public class EntryTimeTable {
+public class TimeTableEntry {
     private String flightName;
     private long from;
     private long to;
     private int time;
 
-    public EntryTimeTable(String flightName, long from, long to, int time) {
+    public TimeTableEntry(String flightName, long from, long to, int time) {
         this.flightName = flightName;
         this.from = from;
         this.to = to;

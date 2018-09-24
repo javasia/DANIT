@@ -1,6 +1,4 @@
-package cw20180708.task1;
-
-import global.utils.FileReader;
+package cw23092018.timeTable;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -16,7 +14,7 @@ public class ManagerCity implements ManagerEntry<Map> {
     }
 
     public Map<Long, CityEntry> items(File dataBaseFile) throws FileNotFoundException {
-        return new FileReader<ArrayList<String>>(dataBaseFile)
+        return new DBParserer<ArrayList<String>>(dataBaseFile)
                 .get() // TreeSet <String>
                 .stream() // Stream <String>
                 .map(s -> new CityEntry(Long.parseLong(s.split(":")[0]), s.split(":")[1]))// Steam <CityEntry>

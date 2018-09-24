@@ -4,7 +4,6 @@ public class Task5 {
     public static void main(String[] args) {
         String origin = "Hello World!";
         System.out.println(reverse(origin));
-       // reverseBinString(origin);
 
     }
 

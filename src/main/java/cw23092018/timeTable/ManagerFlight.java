@@ -1,6 +1,4 @@
-package cw20180708.task1;
-
-import global.utils.FileReader;
+package cw23092018.timeTable;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -16,7 +14,7 @@ public class ManagerFlight implements ManagerEntry<Set> {
     }
 
     public Set<TimeTableEntry> items(File dataBaseFile) throws FileNotFoundException {
-        return new FileReader<ArrayList<String>>(dataBaseFile)
+        return new DBParserer<ArrayList<String>>(dataBaseFile)
                 .get()
                 .stream()
                 .map(s -> new TimeTableEntry(s.split(":")[0], Long.parseLong(s.split(":")[1]),

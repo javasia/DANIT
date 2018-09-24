@@ -7,9 +7,9 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 public class RandomGenerator<T extends Collection<Integer>> {
-    public T getRandomNumbers (int size, int upperBound, int bottomBound){
+    public T numbers(int size, int upperBound, int bottomBound){
         return new Random()
-                .ints(upperBound, bottomBound+1)
+                .ints(size, bottomBound, upperBound)
                 .limit(size)
                 .boxed()
                 .collect(Collectors.toCollection(new Supplier<T>() {
